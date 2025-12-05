@@ -2,12 +2,35 @@ from typing import List
 from collections import deque
 
 ## description of day ##
-## TODO
+"""The safe has a dial with only an arrow on it; around the dial are the numbers 0
+   through 99 in order. As you turn the dial, it makes a small click noise as it
+   reaches each number.
 
+   The attached document (your puzzle input) contains a sequence of rotations, one
+   per line, which tell you how to open the safe. A rotation starts with an L or R
+   which indicates whether the rotation should be to the left (toward lower numbers)
+   or to the right (toward higher numbers). Then, the rotation has a distance value
+   which indicates how many clicks the dial should be rotated in that direction.
+
+   Pt 1:
+   The password is the number of times the dial is left pointing at 0 after any
+   rotation in the sequence.
+
+   Pt 2:
+   "Due to newer security protocols, please use password method 0x434C49434B until
+   further notice."
+
+   You remember from the training seminar that "method 0x434C49434B" means you're
+   actually supposed to count the number of times any click causes the dial to
+   point at 0, regardless of whether it happens during a rotation or at the end of one.
+"""
 
 ## helper functions ##
 def parse_input_file(file: str) -> List[tuple[str, int]]:
-    """TODO: description"""
+    """Read input file and create an array of dial rotations,
+        consisting of a direction(L,R) and a distance.
+        
+        Returns the list of rotations."""
 
     # full list of rotations
     rotations = []
@@ -32,7 +55,10 @@ def parse_input_file(file: str) -> List[tuple[str, int]]:
 
 
 def rotate_dial(rotations: List[tuple[str, int]]) -> int:
-    """TODO: description"""
+    """Take a list of rotations and spin a dial per the instructions of
+        each rotation (direction and distance).
+        
+        Returns the number of times the dial stopped at 0."""
 
     password = 0
 
@@ -66,7 +92,10 @@ def rotate_dial(rotations: List[tuple[str, int]]) -> int:
 
 
 def rotate_dial_pt2(rotations: List[tuple[str, int]]) -> int:
-    """TODO: description"""
+    """Take a list of rotations and spin a dial per the instructions of
+        each rotation (direction and distance).
+        
+        Returns the number of times the dial passed 0."""
 
     password = 0
 
